@@ -1,0 +1,74 @@
+Spring bir frameworkdur,dunyada yeteri qeder popular olan bir frameworkdurki bu framework ile islemek daha rahat test etmek sadedir
+Spring framework a eyni zamanda frameworklarin frameworku da deyilir, cunki ozunde basqa frameworklarida saxliyir
+
+Spring framewrok avantajlari :
+
+Spring developerlere icaze verirki enterprises aplikasialarda POJO dan istifade olunsun ve bunun ucun EJB konteynira da
+ehtiyac yoxdu, sadece guclu  Tomcat kimi servlet konteynera ehtiyac vardir
+
+Spring ORM, logging frameworks, jkd ,jee v s kimi texnologilayari istifade edir
+
+Spring de test etmek daha sadedir ve anlasiqlidir
+
+EJB den ferqli olaraq daha yungul IoC konteynere sahibdir
+Umumiyyetle EJB de islemek cetin oldugu ucun Spring texnoloiyasi yaradildi ve bu sebebden populyarlqi qazandi
+Baxmayaraq ki gunumuzdeki JEE 6 7 8  artiq yuksek seviyyede bir texnologiyadi ancaq reputasiya meselesine gore ve zamaninda
+springde yazilan proyektlere gore JEE e cox nadir hallarda isleyirler
+
+=====================================================================
+IoC , DIP, DI, IoC Container  gel bunlarin ferqlerine baxaq
+
+1) Inversion of Control(IoC)  ve Dependecy Inversion Principle (DIP)  bunlar sadece prinsipdi
+
+2) Dependency Injection (DI)  bu bir pattern dir
+
+3) IoC Container   bu ise bir framewokdur/ mexanizmdir
+
+==============================
+Inversion of Control.
+IoC dizayn prinsipidi hansiki bize muxtelif variantda obyektleri idare ede bilmek ucun aplikasiya classlari arasinda
+loose coupling (yeni aslilqilari minimuma endirir)i elde ede bilmek teklifi verir.
+Bu prinsiplerin isi odurki classlar arasindaki elaqeni asli olmadan qurmaq ve kodun hecmini azaltmaqdir.
+Layman deyisine gore sen ise gederken masini ozun surmek evezine surucu tut o seni aparsin sen ise esas ishe fokuslan. Burdaki meselede budur
+Biz eveller oz proyektlerimizde  tightly couple dan yeni bir birilerine asli olan obyekter yaradib o sekilde isdiyirdik,amma artiq factory pattern kimi prinsiplere uygun
+sekilde kod yazilir
+Unutmayinki IoC prinsipdir , ve bu prinsipe uyan bir cox patternlar vardir
+Service Locator,Factory,Template Method,Dependency Injection,Abstract Factory,Strategy ve s.
+==============================
+Dependency Inversion Principle
+Step 2: DIP prinsipidi IoC kimi loose coupling elde etmek ucun dir.Daha cox meslehet olunan prinsipdir.
+DIP teklif edirki high level modullar low level modullardan asli olmamalidir her ikisi
+abstraktlardan asli olmalidir.Abstractlar detallardan deyil , detallar abstractlardan asli olmalidir.
+
+==================================
+Dependency Injection
+DI ise atiq dizayn pattern dir.IoC prinpisipe esaslanir.
+Bu sene icaze verirki obyekti kenardan create edesen.DI pattern 3 tipe bolunur
+Client class: Buna depentdent class da deyilir, service den asli olan classdir
+Service class: dependency de deyilir, client class ucun service gosteren bir classdir.
+Injector class: service classini client a inject edir
+Dependency Injection de injector class 3 yol ile inject edir
+
+Constructor Injection : constructor vasitesi ile inject edir
+
+Property Injection : Buna Setter injector da deyilir
+
+Method Injection: Bu injection tipinde, client classi asliligi temin etmek ucun metod elan eden bir bir interface
+tetbiq edir ve injection bu interface client class na asliligi temin etmek ucun istifade edir
+==================================
+IoC Container
+bu ise artiq framewokdur hansiki dependency leri avtomatik inject edir , programistin ustunden bu yuku alir ozu
+edir artiq.Bunun kimi IoC container lari coxdu misal .NET  UNITY NINJECT ve s.
+IoC container obyektleri yaradir butun dependecy leri inject edir konstruktor uzerinden tebii ki.Ve bunlari ozu
+etdiyi ucun sen ozun hec bir sey yaratmirsan ve mexaniki idare etmirsen
+
+Container lerin 3 esasini yazacam hansiki DI lifecycle ni destkleyir.
+
+1) Register:  Konteyner mueyyen bir tip ile qasilasdiqda hansi dependecy ni basladacagini bilmelidir
+Bu prosese de register deyilir.
+
+2) Resolve: IoC container den istifade etdikde bizim obyekt yaratmaga ehtiyac yoxdur.Bu da resolution deyilir.
+Konteyner bezi metodlari daxil edirki meseleni hell etsin, container xususi tipde obyekt yaradir,
+teleb olunan dependecyleri object return ederse inject edir.
+
+3) Dispose: Container dependent objectin lifetime ni idare edir
